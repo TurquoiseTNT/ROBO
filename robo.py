@@ -3,10 +3,10 @@ from playsound import playsound
 import speech_recognition as sr
 
 r = sr.Recognizer()
-uidexist = os.path.exists("")
+uidexist = os.path.exists("custom.uid")
 inuse = False
 
-if (uidexist):
+if not (uidexist):
     with open("custom.uid", "r") as file:
         data = file.read().rstrip()
         uid = data
@@ -36,8 +36,9 @@ def talktoai(cmd):
 def speak(string):
     tts = gtts.gTTS(string)
     tts.save("temp.mp3")
+    time.sleep(3)
     playsound("temp.mp3")
-    time.sleep(5)
+    time.sleep(10)
     os.remove("temp.mp3")
 
 print("Setup Finished")
@@ -53,6 +54,14 @@ def command():
         print("Recognised Speech:", response)
         if "hey robo" in response:
             command = response.replace('hey robo', '')
+            print("Got Command ready")
+            ai = talktoai(command)
+            print("Sent to acobot.robo")
+            speak(ai)
+            print("Words Spoken from AI Response:" + ai)
+            inuse = False
+        if "hey Robbo" in response:
+            command = response.replace('hey Robbo', '')
             print("Got Command ready")
             ai = talktoai(command)
             print("Sent to acobot.robo")
