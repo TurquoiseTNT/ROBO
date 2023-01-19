@@ -1,0 +1,12 @@
+[Unit]
+Description=RoboAssistant
+After=network.target
+
+[Service]
+Type=idle
+Restart=on-failure
+User=root
+ExecStart=/usr/bin/python ~/ROBO/robo.py
+
+[Install]
+WantedBy=multi-user.target
