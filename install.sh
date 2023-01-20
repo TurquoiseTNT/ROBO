@@ -1,4 +1,5 @@
-curl -L -o ROBO-b.tar.gz "https://github.com/TurquoiseTNT/ROBO/archive/refs/tags/d.tar.gz"
+pip install gtts uuid requests playsound speech_recognition
+curl -L -o ROBO-b.tar.gz "https://github.com/TurquoiseTNT/ROBO/archive/refs/tags/e.tar.gz"
 mkdir /home/ROBO
 tar xf ROBO-b.tar.gz -C /home/ROBO
 cd /home/ROBO
